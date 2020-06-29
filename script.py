@@ -4,9 +4,11 @@ from selenium.common import exceptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import getpass
 
-USERNAME = 'test@gmail.com'
-PASSWORD = 'xyz'
+USERNAME = input("Enter a USERNAME: ")
+PASSWORD = getpass.getpass("Enter a PASSWORD: ")
+MESSAGE = input("Enter a message to be marked as done: ")
 PATH = './drivers/chromedriver'
 URL = 'https://business.facebook.com/reducept/inbox/?business_id=641855079929'
 driver = webdriver.Chrome(PATH)
@@ -70,7 +72,7 @@ def get_names_of_completed_conversations():
 
             last_message = get_last_message()
 
-            if last_message == 'Bye bye for today (29/05/20)!!' or last_message == 'Bye bye for today (29/05/20)!':
+            if last_message == MESSAGE:
                 names.append(driver.find_element_by_class_name('_iyo').text)
     return names
 
@@ -94,10 +96,13 @@ def main():
     for name in list_of_names:
         user = driver.find_element_by_xpath("//span[contains(text(),'" + name + "')]")
         user.click()
+        print('Name marked as done: ' + name)
         try:
             mark_message_as_done()
         except exceptions.StaleElementReferenceException:
             mark_message_as_done()
+    print('Successfully completed!')
+    driver.quit()
 
 
 if __name__ == "__main__":
