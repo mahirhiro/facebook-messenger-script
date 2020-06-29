@@ -1,4 +1,6 @@
+<img align="left" width="30" alt="facebook logo" src="http://www.vectorico.com/download/social_media/Facebook-Logo.jpg"> 
 # Facebook Messenger Business Script
+
 
 
 ## Table of contents
