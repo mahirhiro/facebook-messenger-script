@@ -4,6 +4,7 @@
 ## Table of contents
 * [The issue at hand](#the-issue-at-hand)
 * [General info](#general-info)
+* [Server](#server)
 * [How to run it?](#how-to-run-it)
 * [Status](#status)
 * [Time Complexity](#contributing)
@@ -20,10 +21,14 @@ text then the script will mark the conversation as done
 This script is written using Selenium, through the python programming language.
 
 
+## Server
+The script is run on a AWS EC2 Instance, combined with a task scheduler the program is run every 4 hours to check for
+any updates in conversations
+
 ## How to run it?
 1. Make sure you have the [chromedriver](https://chromedriver.chromium.org) installed in in the right directory: 
 ```./drivers```
-2. Make sure you have selenium and python3 installed
+2. Make sure you have selenium (using pip3) and python3 installed
 3. Run the program through the terminal not IDE due to design choices for inputting the user password
 4. You will be prompted with an email, followed by a password and finally the flag message to mark a conversation is 
 deleted
