@@ -1,5 +1,5 @@
 # Facebook Messenger Business Script
-
+<img align="left" width="30" alt="facebook logo" src="http://www.vectorico.com/download/social_media/Facebook-Logo.jpg"> 
 
 ## Table of contents
 * [The issue at hand](#the-issue-at-hand)
@@ -7,7 +7,7 @@
 * [Server](#server)
 * [How to run it?](#how-to-run-it)
 * [Status](#status)
-* [Time Complexity](#contributing)
+* [Time Complexity](#time-complexity)
 * [Contact](#contact)
 
 ## The issue at hand
