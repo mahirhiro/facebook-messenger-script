@@ -1,18 +1,14 @@
-import time
 from selenium import webdriver
 from selenium.common import exceptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import getpass
 
-USERNAME = input("Enter a USERNAME: ")
-PASSWORD = getpass.getpass("Enter a PASSWORD: ")
-MESSAGE = input("Enter a message to be marked as done: ")
+USERNAME = 'Enter your FB username here'
+PASSWORD = 'Enter your FB password here'
 PATH = './drivers/chromedriver'
 URL = 'https://business.facebook.com/reducept/inbox/?business_id=641855079929'
 driver = webdriver.Chrome(PATH)
-driver.get(URL)
 
 
 def mark_message_as_done():
@@ -28,6 +24,7 @@ def mark_message_as_done():
 
 
 def login():
+    driver.get(URL)
     # Get and enters the email address
     email = driver.find_element_by_id('email')
     email.send_keys(USERNAME)
@@ -72,7 +69,7 @@ def get_names_of_completed_conversations():
 
             last_message = get_last_message()
 
-            if last_message == MESSAGE:
+            if last_message in 'Fijne dag' or last_message in 'Tot ziens' or last_message in 'bye bye':
                 names.append(driver.find_element_by_class_name('_iyo').text)
     return names
 
@@ -102,7 +99,6 @@ def main():
         except exceptions.StaleElementReferenceException:
             mark_message_as_done()
     print('Successfully completed!')
-    driver.quit()
 
 
 if __name__ == "__main__":
